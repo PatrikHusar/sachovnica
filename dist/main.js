@@ -13,10 +13,10 @@ for (let column = 0; column < boardSize; column++) {
     ctx.fillText(Math.abs(column - boardSize), startingDis / 2, column * squareSize + startingDis + squareSize / 2);
     for (let row = 0; row < boardSize; row++) {
         if ((column + row) % 2 === 0) {
-            ctx.fillStyle = 'white';
+            ctx.fillStyle = 'black';
         }
         else {
-            ctx.fillStyle = 'black';
+            ctx.fillStyle = 'white';
         }
         ctx.fillRect(startingDis + column * squareSize, startingDis + row * squareSize, squareSize, squareSize);
     }
