@@ -1,1 +1,49 @@
+* {
+   box-sizing: border-box;
+}
+body {   
+   font-family: Arial, sans-serif;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   margin: 0;
+   padding: 30px;
+}
 
+#sachovnica {
+   display: grid;
+   grid-template-columns: repeat(8, 1fr);
+   grid-template-rows: repeat(8, 1fr);
+   width: 600px;
+   height: 600px;
+   border: 4px solid black;
+   position: relative; 
+   margin-left: 40px;
+   margin-bottom: 40px;
+}
+
+.policko {
+   width: 100%;
+   height: 100%;
+   position: relative;
+}
+.biele {
+   background-color: #f0d9b5;
+}
+.cierne {
+   background-color: #b58863;
+}
+.suradnica {
+   position: absolute;
+   font-size: 12px;
+   font-weight: bold;
+   pointer-events: none;
+}
+.cislo {
+   top: 4px;
+   left: 6px;
+}
+.pismeno {
+   bottom: 4px;
+   right: 6px;
+}

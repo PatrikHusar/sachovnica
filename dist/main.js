@@ -1,27 +1,31 @@
 "use strict";
-const canvas = document.getElementById('chessboard');
-const ctx = canvas.getContext('2d');
-const letters = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H'];
-const startingDis = 50;
-const squareSize = 70;
-const boardSize = 8;
-ctx.font = '20px Arial';
-ctx.textAlign = 'center';
-ctx.textBaseline = 'middle';
-for (let column = 0; column < boardSize; column++) {
-    ctx.fillStyle = 'black';
-    ctx.fillText(Math.abs(column - boardSize), startingDis / 2, column * squareSize + startingDis + squareSize / 2);
-    for (let row = 0; row < boardSize; row++) {
-        if ((column + row) % 2 === 0) {
-            ctx.fillStyle = 'black';
+const sachovnica = document.getElementById("sachovnica");
+if (sachovnica === null) {
+    throw new Error("Kontajner sachovnice neexistuje.");
+}
+const letters = ["A", "B", "C", "D", "E", "F", "G", "H"];
+for (let riadok = 0; riadok < 8; riadok++) {
+    for (let stlpec = 0; stlpec < 8; stlpec++) {
+        const policko = document.createElement("div");
+        policko.classList.add("policko");
+        if ((riadok + stlpec) % 2 === 0) {
+            policko.classList.add("biele");
         }
         else {
-            ctx.fillStyle = 'white';
+            policko.classList.add("cierne");
         }
-        ctx.fillRect(startingDis + column * squareSize, startingDis + row * squareSize, squareSize, squareSize);
+        if (riadok === 7) {
+            const znak = document.createElement("div");
+            znak.classList.add("suradnica", "pismeno");
+            znak.textContent = letters[stlpec];
+            policko.append(znak);
+        }
+        if (stlpec === 0) {
+            const cislo = document.createElement("div");
+            cislo.classList.add("suradnica", "cislo");
+            cislo.textContent = (8 - riadok).toString();
+            policko.append(cislo);
+        }
+        sachovnica.append(policko);
     }
-}
-ctx.fillStyle = 'black';
-for (let row = 0; row < boardSize; row++) {
-    ctx.fillText(letters.at(row), startingDis + row * squareSize + squareSize / 2, squareSize * 8 + startingDis * 1.5);
 }
