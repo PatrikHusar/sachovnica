@@ -3,7 +3,7 @@ const sachovnica = document.getElementById("sachovnica");
 if (sachovnica === null) {
     throw new Error("Kontajner sachovnice neexistuje.");
 }
-const letters = ["A", "B", "C", "D", "E", "F", "G", "H"];
+const letters = ["a", "b", "c", "d", "e", "f", "g", "h"];
 for (let riadok = 0; riadok < 8; riadok++) {
     for (let stlpec = 0; stlpec < 8; stlpec++) {
         const policko = document.createElement("div");
